@@ -6,24 +6,59 @@ To perform and verify DFT using FFT-ALGORITHM by SCILAB.
 PC installed with SCILAB
 ## PROGRAM 
 ### DFT FFT-ALGORITHM
-<br>
-<br>
-<br>
-<br>
-<br>
+```
+clear;
+clc;
+close;
+xn = [1 2 3 4];
+n1 = 0:1:length(xn)-1;
 
-<br>
+subplot(2,2,1);
+plot2d3(n1,xn);
+
+xlabel('Time n');
+ylabel('Amplitude');
+title('Input Sequence');
+
+
+Xk = fft(xn);
+K1 = 0:1:length(Xk)-1;
+magnitude = abs(Xk)
+
+subplot(2,2,2);
+plot2d3(K1, magnitude);
+
+xlabel('frequency(Hz)');
+ylabel('magnitude(gain)');
+title('magnitude spectrum');
+
+angle = atan(imag(Xk), real(Xk))
+
+subplot(2,2,3);
+plot2d3(K1, angle);
+
+xlabel('frequency(Hz)');
+ylabel('Phase');
+title('Phase spectrum');
+
+y = ifft(Xk);
+n2 = 0:1:length(y)-1;
+
+subplot(2,2,4);
+plot2d3(n2, y);
+
+xlabel('Time n');
+ylabel('Amplitude');
+title('Inverse FFT OF X(K)');
+```
 ### CALCULATIONS:
-<br>
-<br>
-<br>
-<br>
-<br>
+<img width="808" height="1600" alt="image" src="https://github.com/user-attachments/assets/6e38ec46-2812-47ab-96ee-867b65ad1a34" />
+
+<img width="1420" height="1600" alt="image" src="https://github.com/user-attachments/assets/0aacd2f8-7d6e-4f43-a208-5fea202c9c02" />
+
+
 ### SAMPLE OUTPUT:
-<br>
-<br>
-<br>
-<br>
+<img width="1600" height="1250" alt="image" src="https://github.com/user-attachments/assets/ab4e13ab-8ddd-4498-a1f5-0642b40e1b70" />
 
 
 
